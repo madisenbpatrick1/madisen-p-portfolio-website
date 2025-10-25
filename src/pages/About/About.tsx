@@ -1,22 +1,94 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import aboutSections from "../../data/aboutSections";
 
-import { motion } from 'framer-motion';
 export default function About() {
-    return (
-        <div>
-            <section className="flex flex-col md:flex-row items-center justify-between px-8 md:px-16 py-24">
-                <div className="max-w-xl">
-                    <motion.h1
-                        className="text-5xl font-extrabold mb-6 text-[#2563EB]"
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                    >
-                        Hi, I’m <span className="text-[#EC4899]">Madisen Patrick</span>
-                    </motion.h1>
+    const [activeSection, setActiveSection] = useState("overview");
 
-                    <p className="text-lg text-gray-800 mb-8">
-                        I’m a software engineer and project manager who builds digital experiences that merge creativity and functionality.
-                    </p>
-                </div>
+    const section = aboutSections.find((s) => s.key === activeSection);
+
+    return (
+        <div className="flex flex-col min-h-screen">
+
+<header className="w-full text-[#EC4899] py-6 text-center">
+        <h1 className="text-4xl md:text-5xl font-extrabold">Madisen Patrick</h1>
+      </header>
+            {/* About Content Section */}
+            <section className="flex flex-col md:flex-row flex-grow px-8 md:px-16 py-16">
+                {/* Sidebar Tabs */}
+                <aside className="md:w-1/4 mb-8 md:mb-0 flex flex-col gap-4">
+                    {aboutSections.map((s) => (
+                        <button
+                            key={s.key}
+                            className={`py-2 px-4 text-left rounded-lg transition ${activeSection === s.key
+                                    ? "bg-pink-100 text-pink-700 font-semibold"
+                                    : "hover:bg-gray-100 text-gray-700"
+                                }`}
+                            onClick={() => setActiveSection(s.key)}
+                        >
+                            {s.title}
+                        </button>
+                    ))}
+                </aside>
+
+                {/* Main Section */}
+                <main className="md:w-3/4 md:pl-12">
+                    <h2 className="text-2xl font-bold text-blue-700 mb-4">{section?.title}</h2>
+
+                    {/* Contact Section */}
+                    {section?.key === "contactMe" ? (
+                        <div className="flex flex-col gap-3">
+                            <a
+                                href="mailto:madisen.bpatrick@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-pink-500 hover:underline"
+                            >
+                                📧 madisen.bpatrick@gmail.com
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/madisen-patrick-238686195/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-pink-500 hover:underline"
+                            >
+                                💼 LinkedIn Profile
+                            </a>
+                        </div>
+                    ) : section?.content ? (
+                        <p className="text-gray-800">{section.content}</p>
+                    ) : null}
+
+                    {/* Experience / Education Cards */}
+                    {section?.items && (
+                        <div className="grid md:grid-cols-2 gap-6 mt-6">
+                            {section.items.map((item, idx) => (
+                                <div
+                                    key={idx}
+                                    className="flex gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition"
+                                >
+                                    {item.logo && (
+                                        <img
+                                            src={item.logo}
+                                            alt={("company" in item ? item.company : item.institution) || ""}
+                                            className="w-16 h-16 object-contain rounded-lg"
+                                        />
+                                    )}
+                                    <div>
+                                        <h3 className="font-semibold text-lg text-blue-800">
+                                            {"company" in item ? item.company : item.institution}
+                                        </h3>
+                                        <p className="text-gray-600">
+                                            {"role" in item ? item.role : item.degree}
+                                        </p>
+                                        <p className="text-gray-700 mt-1">{item.description}</p>
+                                        <p className="text-gray-400 mt-1 text-sm">{item.years}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </main>
             </section>
         </div>
     );
