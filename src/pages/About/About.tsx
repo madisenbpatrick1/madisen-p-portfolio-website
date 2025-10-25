@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import aboutSections from "../../data/aboutSections";
+import { useTheme } from "../../components/common/ThemeContext";
 
 export default function About() {
     const [activeSection, setActiveSection] = useState("overview");
+    const { theme } = useTheme();
 
     const section = aboutSections.find((s) => s.key === activeSection);
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen dark:bg-gray-900 transition-colors duration-500 rounded-lg">
 
-            <header className="w-full text-[#EC4899] py-6 text-center">
+            <header className="w-full text-[#EC4899] py-6 text-center transition-colors duration-500">
                 <h1 className="text-4xl md:text-5xl font-extrabold">Madisen Patrick</h1>
             </header>
             <div className="flex justify-center mt-6">
@@ -60,7 +62,7 @@ export default function About() {
                             key={s.key}
                             className={`py-2 px-4 text-left rounded-lg transition ${activeSection === s.key
                                 ? "bg-pink-100 text-pink-700 font-semibold"
-                                : "hover:bg-gray-100 text-gray-700"
+                                : "hover:bg-gray-100  dark:hover:bg-gray-800  "
                                 }`}
                             onClick={() => setActiveSection(s.key)}
                         >
@@ -71,7 +73,7 @@ export default function About() {
 
                 {/* Main Section */}
                 <main className="md:w-3/4 md:pl-12">
-                    <h2 className="text-2xl font-bold text-blue-700 mb-4">{section?.title}</h2>
+                    <h2 className="text-2xl font-bold text-blue-700 mb-4 dark:text-blue-400 transition-colors duration-500">{section?.title}</h2>
 
                     {/* Contact Section */}
                     {section?.key === "contactMe" ? (
@@ -80,7 +82,7 @@ export default function About() {
                                 href="mailto:madisen.bpatrick@gmail.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-pink-500 hover:underline"
+                                className="text-pink-500  dark:text-pink-400 hover:underline transition-colors duration-500"
                             >
                                 📧 madisen.bpatrick@gmail.com
                             </a>
@@ -88,13 +90,13 @@ export default function About() {
                                 href="https://www.linkedin.com/in/madisen-patrick-238686195/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-pink-500 hover:underline"
+                                className="text-pink-500 dark:text-pink-400 hover:underline transition-colors duration-500"
                             >
                                 💼 LinkedIn Profile
                             </a>
                         </div>
                     ) : section?.content ? (
-                        <p className="text-gray-800">{section.content}</p>
+                        <p className="text-gray-800dark:text-gray-300 transition-colors duration-500">{section.content}</p>
                     ) : null}
 
                     {/* Experience / Education Cards */}
@@ -103,7 +105,7 @@ export default function About() {
                             {section.items.map((item, idx) => (
                                 <div
                                     key={idx}
-                                    className="flex gap-4 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition"
+                                    className="flex gap-4 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all"
                                 >
                                     {item.logo && (
                                         <img
@@ -113,14 +115,14 @@ export default function About() {
                                         />
                                     )}
                                     <div>
-                                        <h3 className="font-semibold text-lg text-blue-800">
+                                        <h3 className="font-bold text-lg text-blue-800 dark:text-blue-400 transition-colors duration-500">
                                             {"company" in item ? item.company : item.institution}
                                         </h3>
-                                        <p className="text-gray-600">
+                                        <p className="text-gray-600 font-semibold dark:text-gray-300">
                                             {"role" in item ? item.role : item.degree}
                                         </p>
-                                        <p className="text-gray-700 mt-1">{item.description}</p>
-                                        <p className="text-gray-400 mt-1 text-sm">{item.years}</p>
+                                        <p className="text-gray-700  dark:text-gray-200 mt-1">{item.description}</p>
+                                        <p className="text-gray-400 dark:text-gray-400mt-1 text-sm">{item.years}</p>
                                     </div>
                                 </div>
                             ))}
