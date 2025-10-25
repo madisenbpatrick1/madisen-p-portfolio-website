@@ -32,9 +32,9 @@ export default function Navbar() {
       {menuOpen && (
         <div className="absolute top-16 right-8 bg-[#2563EB] p-4 rounded-xl flex flex-col space-y-4 md:hidden">
           <a href="#/">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <a href="#/about">About</a>
+          <a href="#/projects">Projects</a>
+          <a href="#/contact">Contact</a>
         </div>
       )}
     </nav>
