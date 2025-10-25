@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import aboutSections from "../../data/aboutSections";
-import { useTheme } from "../../components/common/ThemeContext";
+// import { useTheme } from "../../components/common/ThemeContext";
 
 export default function About() {
     const [activeSection, setActiveSection] = useState("overview");
-    const { theme } = useTheme();
+    // const { theme } = useTheme();
 
     const section = aboutSections.find((s) => s.key === activeSection);
 

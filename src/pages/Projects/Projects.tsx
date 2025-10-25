@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import codeProjectData from "../../data/codeProjects";
-import { useTheme } from "../../components/common/ThemeContext";
+// import { useTheme } from "../../components/common/ThemeContext";
 
 export default function Project() {
-  const { theme } = useTheme();
+//   const { theme } = useTheme();
 
   return (
     <main className="min-h-screen bg-tanBg dark:bg-gray-900 text-[#1E1E1E] dark:text-gray-200 px-6 md:px-12 py-16 transition-colors duration-500">
