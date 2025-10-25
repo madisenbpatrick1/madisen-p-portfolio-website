@@ -2,24 +2,24 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
-        <section className="flex flex-col md:flex-row items-center justify-between px-8 md:px-16 py-24">
+        <section className="flex flex-col md:flex-row items-center justify-between px-8 md:px-16 py-24 dark:transition-colors duration-500">
             <div className="max-w-xl">
                 <motion.h1
                     className="text-5xl font-extrabold mb-6 text-[#2563EB]"
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                 >
-                    Hi, I’m <span className="text-[#EC4899]">Madisen Patrick</span>
+                    Hi, I’m <span className="text-[#EC4899] ">Madisen Patrick</span>
                 </motion.h1>
 
-                <p className="text-lg text-gray-800 mb-8">
+                <p className="text-lg text-gray-800 dark:text-gray-300 mb-8">
                     I’m a software engineer and project manager who builds digital experiences that merge creativity and functionality.
                 </p>
 
                 <div className="flex space-x-4">
                     <motion.a
                         href="#projects"
-                        className="bg-[#2563EB] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#1E40AF] transition"
+                        className="bg-[#2563EB] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#1E40AF] dark:hover:bg-[#3B82F6] transition"
                         whileHover={{ scale: 1.05 }}
                     >
                         View My Work

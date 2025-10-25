@@ -9,7 +9,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="flex flex-col min-h-screen bg-tan-50">
+    <div className="flex flex-col min-h-screen bg-tan-50 dark:bg-gray-950 dark:text-gray-100">
       {/* Navbar at top */}
       <Navbar />
 
