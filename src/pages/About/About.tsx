@@ -1,11 +1,8 @@
 
 import { motion } from 'framer-motion';
-import Navbar from '../../components/common/Navbar';
-import Footer from '../../components/common/Footer';
 export default function About() {
     return (
         <div>
-            <Navbar />
             <section className="flex flex-col md:flex-row items-center justify-between px-8 md:px-16 py-24">
                 <div className="max-w-xl">
                     <motion.h1
@@ -21,7 +18,6 @@ export default function About() {
                     </p>
                 </div>
             </section>
-            <Footer/>
         </div>
     );
 }

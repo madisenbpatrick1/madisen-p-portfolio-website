@@ -1,12 +1,10 @@
 import React from "react";
-import Navbar from "../../components/common/Navbar";
 import { motion } from "framer-motion";
 import codeProjectData from "../../data/codeProjects";
 
 export default function Project() {
     return (
         <>
-            <Navbar />
             <main className="min-h-screen bg-tanBg text-[#1E1E1E] px-6 md:px-12 py-16">
                 {/* Header Section */}
                 <header className="text-center max-w-3xl mx-auto mb-16">
