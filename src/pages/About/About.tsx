@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
 import Navbar from '../../components/common/Navbar';
+import Footer from '../../components/common/Footer';
 export default function About() {
     return (
         <div>
@@ -20,6 +21,7 @@ export default function About() {
                     </p>
                 </div>
             </section>
+            <Footer/>
         </div>
     );
 }
