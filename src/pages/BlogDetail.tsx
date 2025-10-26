@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import techBlogs from "../data/blogData/techBlogData";
 import businessBlogs from "../data/blogData/businessBlogData";
 import { blogDetailStyles } from "../styles/BlogDetailStyles";
 
 export default function BlogDetail() {
+    const navigate = useNavigate();
     const { id, category } = useParams();
 
     // Select blog data based on category
@@ -44,6 +45,14 @@ export default function BlogDetail() {
             <section className={blogDetailStyles.content}>
                 <p>{blog.content || "Full blog content goes here..."}</p>
             </section>
+            <div className="max-w-3xl mx-auto text-center mt-12">
+                <button
+                    onClick={() => navigate("/blog")}
+                    className="bg-blue-600 dark:bg-blue-400 text-white dark:text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 dark:hover:bg-blue-500 transition"
+                >
+                    ← Back to Blog List
+                </button>
+            </div>
         </main>
     );
 }
