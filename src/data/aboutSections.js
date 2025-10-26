@@ -15,7 +15,7 @@ const aboutSections = [
           company: "Apple",
           role: "MBA Intern",
           description:
-            "Conducted user research and analysis to identify pain points, delivering actionable recommendations that improved site usability and technician satisfaction.",
+            "Conducted user research and analysis to identify pain points, delivering actionable recommendations that improved site usability and technician satisfaction. Formulated and architected a scalable AIML software implementation while collaborating with cross-functional teams to result in a more accessible interface.",
           years: "4 months",
         },
         {

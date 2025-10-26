@@ -1,13 +1,12 @@
-// AboutStyles.ts
-
 export const container = `
-  flex flex-col min-h-screen
+  flex flex-col min-h-screen 
   dark:bg-gray-900
+  px-6 md:px-12 py-16
   transition-colors duration-500
   rounded-lg
 `;
 
-export const header = `
+export const headerWrapper = `
   w-full text-[#EC4899]
   py-6 text-center
   transition-colors duration-500
@@ -15,6 +14,7 @@ export const header = `
 
 export const headerTitle = `
   text-4xl md:text-5xl font-extrabold
+  mb-4 transition-colors duration-500
 `;
 
 export const resumeWrapper = `

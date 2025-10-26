@@ -10,17 +10,17 @@ const businessBlogs = [
     tags: ["Leadership", "Workplace", "Management"],
     content:"",
   },
-  {
-    id: 2,
-    title: "Why Every Engineer Should Study Literature",
-    category: "business",
-    description:
-      "The surprising overlap between analytical thinking and storytelling — and how reading fiction can make you a better technologist.",
-    date: "July 2025",
-    link: "/blog/engineers-and-literature",
-    tags: ["Literature", "Mindset", "Creativity"],
-    content:"",
-  },
+  // {
+  //   id: 2,
+  //   title: "Why Every Engineer Should Study Literature",
+  //   category: "business",
+  //   description:
+  //     "The surprising overlap between analytical thinking and storytelling — and how reading fiction can make you a better technologist.",
+  //   date: "July 2025",
+  //   link: "/blog/engineers-and-literature",
+  //   tags: ["Literature", "Mindset", "Creativity"],
+  //   content:"",
+  // },
 ];
 
 export default businessBlogs;

@@ -2,14 +2,14 @@ export const contactStyles = {
     container: `
     min-h-screen 
     flex flex-col items-center justify-center 
-    px-8 md:px-16 py-24 
+    px-6 md:px-12 py-16
     bg-tanBg dark:bg-gray-900 
     text-[#1E1E1E] dark:text-gray-200 
     transition-colors duration-500
   `,
 
     header: `
-    text-center max-w-2xl mb-16
+    text-center mb-16
   `,
 
     title: `

@@ -10,17 +10,17 @@ const techBlogs = [
     tags: ["React", "Architecture", "Best Practices"],
     content: "",
   },
-  {
-    id: 2,
-    title: "The Rise of AI in Software Engineering",
-    category: "tech",
-    description:
-      "Exploring how AI copilots and automation tools are reshaping the role of developers in the modern workflow.",
-    date: "Sept 2025",
-    link: "/blog/ai-in-engineering",
-    tags: ["AI", "Software Development", "Tools"],
-    content: "",
-  },
+  // {
+  //   id: 2,
+  //   title: "The Rise of AI in Software Engineering",
+  //   category: "tech",
+  //   description:
+  //     "Exploring how AI copilots and automation tools are reshaping the role of developers in the modern workflow.",
+  //   date: "Sept 2025",
+  //   link: "/blog/ai-in-engineering",
+  //   tags: ["AI", "Software Development", "Tools"],
+  //   content: "",
+  // },
 ];
 
 export default techBlogs;
