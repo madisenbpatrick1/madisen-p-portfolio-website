@@ -1,25 +1,84 @@
-import { motion } from 'framer-motion';
-import { blogStyles } from '../styles/BlogStyles'; // adjust path if needed
+import { motion } from "framer-motion";
+import techBlogs from "../data/blogData/techBlogData";
+import businessBlogs from "../data/blogData/businessBlogData";
+import { blogStyles } from "../styles/BlogStyles";
 
 export default function Blog() {
   return (
-    <div>
-      <section className={blogStyles.container}>
-        <div className={blogStyles.textWrapper}>
-          <motion.h1
-            className={blogStyles.heading}
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-          >
-            Hi, I’m <span className={blogStyles.nameHighlight}>Madisen Patrick</span>
-          </motion.h1>
+    <main className={blogStyles.container}>
+      {/* Page Header */}
+      <header className={blogStyles.header}>
+        <motion.h1
+          className={blogStyles.title}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Blog & Essays
+        </motion.h1>
+        <p className={blogStyles.subtitle}>
+          Exploring the intersection of <span className="text-blue-500">technology</span>,{" "}
+          <span className="text-pink-500">business</span>, and the written word.
+        </p>
+      </header>
 
-          <p className={blogStyles.paragraph}>
-            I’m a software engineer and project manager who builds digital experiences
-            that merge creativity and functionality.
-          </p>
+      {/* Tech Blogs Section */}
+      <section className={blogStyles.section}>
+        <h2 className={blogStyles.sectionTitle}>Tech & Engineering</h2>
+        <div className={blogStyles.grid}>
+          {techBlogs.map((post) => (
+            <motion.div
+              key={post.id}
+              className={blogStyles.card}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <h3 className={blogStyles.cardTitle}>{post.title}</h3>
+              <p className={blogStyles.cardDescription}>{post.description}</p>
+              <div className={blogStyles.tagContainer}>
+                {post.tags.map((tag, idx) => (
+                  <span key={idx} className={blogStyles.tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a href={`#/blog/${post.category}/${post.id}`} className={blogStyles.readMore}>
+                Read More →
+              </a>
+            </motion.div>
+          ))}
         </div>
       </section>
-    </div>
+
+      {/* Business & Literature Section */}
+      <section className={blogStyles.section}>
+        <h2 className={blogStyles.sectionTitle}>Business & Literature</h2>
+        <div className={blogStyles.grid}>
+          {businessBlogs.map((post) => (
+            <motion.div
+              key={post.id}
+              className={blogStyles.card}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <h3 className={blogStyles.cardTitle}>{post.title}</h3>
+              <p className={blogStyles.cardDescription}>{post.description}</p>
+              <div className={blogStyles.tagContainer}>
+                {post.tags.map((tag, idx) => (
+                  <span key={idx} className={blogStyles.tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a href={`#/blog/${post.category}/${post.id}`} className={blogStyles.readMore}>
+                Read More →
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
