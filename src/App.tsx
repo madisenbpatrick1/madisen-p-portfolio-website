@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import About from './pages/About/About';
-import Contact from './pages/Contact/Contact';
-import Projects from './pages/Projects/Projects';
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Projects from './pages/Projects';
 import './styles/global.css';
 import Layout from './components/common/Layout';
 import { ThemeProvider } from './components/common/ThemeContext';
