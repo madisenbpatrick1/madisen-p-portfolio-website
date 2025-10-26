@@ -43,7 +43,7 @@ export default function Blog() {
                   </span>
                 ))}
               </div>
-              <a href={post.link} className={blogStyles.readMore}>
+              <a href={`#/blog/${post.category}/${post.id}`} className={blogStyles.readMore}>
                 Read More →
               </a>
             </motion.div>
@@ -72,7 +72,7 @@ export default function Blog() {
                   </span>
                 ))}
               </div>
-              <a href={post.link} className={blogStyles.readMore}>
+              <a href={`#/blog/${post.category}/${post.id}`} className={blogStyles.readMore}>
                 Read More →
               </a>
             </motion.div>
