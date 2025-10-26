@@ -21,7 +21,7 @@ export default function Navbar() {
         <a href="#/" className="hover:text-[#EC4899] dark:hover:text-[#F472B6]">Home</a>
         <a href="#/about" className="hover:text-[#EC4899]dark:hover:text-[#F472B6]">About</a>
         <a href="#/projects" className="hover:text-[#EC4899] dark:hover:text-[#F472B6]">Projects</a>
-        {/* <a href="#/blog" className="hover:text-[#EC4899]">Blog</a> */}
+        <a href="#/blog" className="hover:text-[#EC4899]">Blog</a>
         <a href="#/contact" className="hover:text-[#EC4899] dark:hover:text-[#F472B6]">Contact</a>
         <button
         onClick={toggleTheme}
@@ -46,6 +46,7 @@ export default function Navbar() {
           <a href="#/">Home</a>
           <a href="#/about">About</a>
           <a href="#/projects">Projects</a>
+          <a href="#/blog">Blog</a>
           <a href="#/contact">Contact</a>
           <button
         onClick={toggleTheme}
