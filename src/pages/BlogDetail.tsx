@@ -3,18 +3,34 @@ import { motion } from "framer-motion";
 import techBlogs from "../data/blogData/techBlogData";
 import businessBlogs from "../data/blogData/businessBlogData";
 import { blogDetailStyles } from "../styles/BlogDetailStyles";
+import ReactMarkdown from "react-markdown";
+import { useEffect, useState } from "react";
 
 export default function BlogDetail() {
     const navigate = useNavigate();
     const { id, category } = useParams();
+    const [content, setContent] = useState("");
 
     // Select blog data based on category
     const blogData = category === "tech" ? techBlogs : businessBlogs;
     const blog = blogData.find((b) => b.id.toString() === id);
 
+     // Load Markdown content dynamically
+    useEffect(() => {
+        if (!blog) return;
+        
+        fetch(`/blogs/${category}/${blog.content}`)
+            .then((res) => res.text())
+            .then((text) => setContent(text))
+            .catch(() => setContent("Failed to load blog content."));
+    }, [category, blog]);
+
+
     if (!blog) {
         return <p className={blogDetailStyles.notFound}>Blog not found.</p>;
     }
+
+   
 
     return (
         <main className={blogDetailStyles.container}>
@@ -43,7 +59,12 @@ export default function BlogDetail() {
             </motion.header>
 
             <section className={blogDetailStyles.content}>
-                <p>{blog.content || "Full blog content goes here..."}</p>
+                <section className={blogDetailStyles.content}>
+                    <div className="prose dark:prose-invert max-w-none">
+                        <ReactMarkdown>{content}</ReactMarkdown>
+                    </div>
+                </section>
+
             </section>
             <div className="max-w-3xl mx-auto text-center mt-12">
                 <button
